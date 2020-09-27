@@ -12,4 +12,11 @@ class IndexView(ListAPIView, CreateAPIView):
     serializer_class = RequestSerializer
     queryset = Request.objects
     filter_backends = (SearchFilter, DjangoFilterBackend)
-    search_fields = ('type',)
+    search_fields = ('text',)
+
+
+class RequestIndexView(ListAPIView, CreateAPIView):
+    serializer_class = RequestSerializer
+    queryset = Request.objects
+    filter_backends = (SearchFilter, DjangoFilterBackend)
+    search_fields = ('text',)

@@ -5,6 +5,8 @@ from requests.models import Request
 
 class RequestSerializer(serializers.ModelSerializer):
     type = serializers.CharField(required=True)
+    text = serializers.CharField(required=True)
+    price = serializers.DecimalField(required=False, min_value=1, max_value=10000, decimal_places=2, max_digits=9)
     user = serializers.IntegerField(required=False, write_only=True)
     user_info = serializers.CharField(read_only=True)
 
@@ -18,4 +20,4 @@ class RequestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Request
-        fields = ('user', 'type', 'user_info')
+        fields = ('user', 'type', 'user_info', 'text')
