@@ -1,8 +1,9 @@
-from django.urls import path
+from rest_framework import routers
 
 from . import views
 
-urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
-    path('request', views.IndexView.as_view(), name='index'),
-]
+router = routers.DefaultRouter()
+
+router.register(r'', views.IndexViewSet)
+
+urlpatterns = router.urls

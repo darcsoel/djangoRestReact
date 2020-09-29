@@ -21,7 +21,7 @@ from django.conf.urls.static import serve
 import requests.urls
 
 urlpatterns = [
-    path('request', include(requests.urls)),
+    path('request/', include(requests.urls)),
     path('admin/', admin.site.urls),
     re_path(r'^(?P<path>.*)$', serve, {'document_root': settings.FRONTEND_ROOT})
 ]

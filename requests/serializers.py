@@ -9,6 +9,7 @@ class RequestSerializer(serializers.ModelSerializer):
     price = serializers.DecimalField(required=False, min_value=1, max_value=10000, decimal_places=2, max_digits=9)
     user = serializers.IntegerField(required=False, write_only=True)
     user_info = serializers.CharField(read_only=True)
+    id = serializers.IntegerField(read_only=True)
 
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
@@ -20,4 +21,4 @@ class RequestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Request
-        fields = ('user', 'type', 'user_info', 'text', 'price')
+        fields = ('user', 'type', 'user_info', 'text', 'price', 'id')
