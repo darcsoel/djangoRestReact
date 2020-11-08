@@ -23,5 +23,6 @@ import requests.urls
 urlpatterns = [
     path('request/', include(requests.urls)),
     path('admin/', admin.site.urls),
-    re_path(r'^(?P<path>.*)$', serve, {'document_root': settings.FRONTEND_ROOT})
+    re_path(r'^(?P<path>.*)$', serve,
+            {'document_root': settings.FRONTEND_ROOT})
 ]
